@@ -1,6 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
+import { globalStore, GlobalStoreKey } from "./stores/Global";
 
-createApp(App).use(store).use(router).mount("#app");
+const app = createApp(App);
+app
+  .use(router)
+  .provide(GlobalStoreKey, globalStore())
+  .mount("#app");

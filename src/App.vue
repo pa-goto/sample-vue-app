@@ -1,10 +1,30 @@
 <template>
+  <CounterProvider>
+    <InjectedCounterDisplay />
+    <InjectedIncrementButton />
+  </CounterProvider>
+  <hr />
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
 </template>
+<script lang="ts">
+import { defineComponent } from "vue";
+import CounterProvider from "@/components/CounterProvider.vue";
+import InjectedCounterDisplay from "@/components/InjectedCounterDisplay.vue";
+import InjectedIncrementButton from "@/components/InjectedIncrementButton.vue";
+
+export default defineComponent({
+  name: "Home",
+  components: {
+    CounterProvider,
+    InjectedCounterDisplay,
+    InjectedIncrementButton,
+  },
+});
+</script>
 
 <style lang="scss">
 #app {
